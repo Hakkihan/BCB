@@ -71,6 +71,21 @@ This separation allows for:
 2. **Transaction Fees**: £0.10 per transaction exceeding the account's monthly threshold
 3. **Promotional Discounts**: Percentage discount applied for specified days after account creation
 
+## Validation Rules
+
+### Input Validation
+- **Currency Codes**: Must be 3-letter uppercase format (e.g., USD, EUR, GBP)
+- **Account IDs**: Alphanumeric characters, hyphens, and underscores only
+- **Transaction Count**: Must be between 0 and 1,000,000
+- **Date Ranges**: Billing periods cannot be more than 1 year in the past or future
+- **Discount Rates**: Must be between 0% and 100% (0.0 to 1.0)
+- **Monthly Fees**: Must be positive and cannot exceed £10,000
+
+### Business Logic Validation
+- **Date Validation**: Billing period start must be before end date
+- **Account Existence**: Accounts and currencies must exist before billing
+- **Duplicate Prevention**: Account IDs and currency codes must be unique
+
 ## Running the Service
 
 ```bash
